@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-
 function App() {
   const [tasks, setTasks] = useState([]);
   const [input, setInput] = useState("");
+
   const addTask = () => {
     if (!input.trim()) return;
     setTasks([
@@ -12,9 +12,11 @@ function App() {
     ]);
     setInput("");
   };
+
   const deleteTask = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
   };
+
   return (
     <div className="todo-container">
       <h2>Att göra-lista</h2>
@@ -27,6 +29,7 @@ function App() {
         />
         <button onClick={addTask}>Lägg till</button>
       </div>
+
       <ul>
         {tasks.map((task, index) => (
           <li key={index}>
